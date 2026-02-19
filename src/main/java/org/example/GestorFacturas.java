@@ -16,15 +16,16 @@ public class GestorFacturas {
 
 
     public void addFactura(LineaFactura factura) {
+
         this.misFacturas.add(factura);
     }
 
 
-    public void printFactures() {
+    public void printFactures(BigDecimal iva) {
         System.out.println("---FACTURAS---");
         for (LineaFactura factura : this.misFacturas) {
 
-            System.out.println(factura.getConcept() + " - " + factura.calculateTotal(new BigDecimal("0.21")) + " €");
+            System.out.println(factura.getConcept() + " - " + factura.calculateTotal(iva) + " €");
         }
     }
 

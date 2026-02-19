@@ -2,21 +2,23 @@ package org.example;
 
 import java.math.BigDecimal;
 
-public class LineaBase {
+public abstract class LineaBase {
 
-    protected String concept;
-    public LineaBase(String concept){
-        if (concept==null || concept.length()<5){
-            throw new ExcepcionInvalidoConcepto("El concepto " + concept + " es demasiado corto");
+    private String concept;
+
+    public LineaBase(String concept) {
+        if (concept == null || concept.length() < 5) {
+            throw new InvalidConceptException("El concepto " + concept + " es demasiado corto");
         }
-        this.concept=concept;
+        this.concept = concept;
     }
 
     public String getConcept() {
         return concept;
     }
 
-    public BigDecimal calculateTotal(BigDecimal tax){
-        return BigDecimal.ZERO;
-    }
+
+    public abstract BigDecimal calculateTotal(BigDecimal tax);
+
+
 }
